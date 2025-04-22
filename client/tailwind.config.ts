@@ -14,7 +14,7 @@ const baseColors = [
 ];
 
 const shadeMapping = {
-  "50": "900",
+  "50": "900",  // Light mode : Dark mode
   "100": "800",
   "200": "700",
   "300": "600",
@@ -27,6 +27,8 @@ const shadeMapping = {
 };
 
 
+
+// Convert colors according to the Light or Dark mode
 const generateThemeObject = (colors: any, mapping: any, invert = false) => {
   const theme: any = {};
   baseColors.forEach((color) => {
