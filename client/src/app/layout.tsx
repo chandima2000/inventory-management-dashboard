@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./global.css";
 import DashboardWrapper from "./dashboardWrapper/page";
+import StoreProvider from "./StoreProvider";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,9 +22,11 @@ export default function RootLayout({
       <body
         className={inter.className}
       >
-        <DashboardWrapper>
-          {children}
-        </DashboardWrapper>
+        <StoreProvider>
+          <DashboardWrapper>
+            {children}
+          </DashboardWrapper>
+        </StoreProvider>
       </body>
     </html>
   );
