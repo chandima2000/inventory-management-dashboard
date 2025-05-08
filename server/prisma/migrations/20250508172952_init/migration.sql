@@ -1,10 +1,10 @@
 -- CreateTable
-CREATE TABLE "User" (
+CREATE TABLE "Users" (
     "userId" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "name" TEXT NOT NULL,
 
-    CONSTRAINT "User_pkey" PRIMARY KEY ("userId")
+    CONSTRAINT "Users_pkey" PRIMARY KEY ("userId")
 );
 
 -- CreateTable
@@ -93,7 +93,7 @@ CREATE TABLE "ExpenseByCategory" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+CREATE UNIQUE INDEX "Users_email_key" ON "Users"("email");
 
 -- AddForeignKey
 ALTER TABLE "Sales" ADD CONSTRAINT "Sales_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Products"("productId") ON DELETE RESTRICT ON UPDATE CASCADE;
