@@ -1,5 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-
+import { PrismaClient } from "../generated/prisma";
 
 import fs from "fs";  // imports the File System (fs) module
 import path from "path";  // imports the Path module, used to work with file and directory paths in a cross-platform 
