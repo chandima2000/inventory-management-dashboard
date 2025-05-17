@@ -12,6 +12,7 @@ const prisma = new PrismaClient();
 
 
 async function deleteAllData(orderedFileNames: string[]) {
+  
   const modelNames = orderedFileNames.map((fileName) => {
     const modelName = path.basename(fileName, path.extname(fileName));
     return modelName.charAt(0).toUpperCase() + modelName.slice(1);
