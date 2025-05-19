@@ -18,8 +18,16 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(cors())
 
 
+// Custom Routes
+app.get("/hello", (req, res) => {
+    res.send("Hello World");
+});
+
+
+
 // Server Setup
 const port = process.env.PORT || 3001;
-app.listen(() => {
+
+app.listen(port,  () => {
     console.log(`Server is running on port ${port}`);
 });
