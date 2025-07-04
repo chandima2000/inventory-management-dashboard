@@ -12,10 +12,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const prisma_1 = require("../generated/prisma");
+const client_js_1 = require("../src/generated/prisma/client.js");
 const fs_1 = __importDefault(require("fs")); // imports the File System (fs) module
 const path_1 = __importDefault(require("path")); // imports the Path module, used to work with file and directory paths in a cross-platform 
-const prisma = new prisma_1.PrismaClient();
+const prisma = new client_js_1.PrismaClient();
 // Extracts model names from the file names (e.g., "products.json" → "Products").
 // Calls deleteMany() on each Prisma model to clear existing records.
 function deleteAllData(orderedFileNames) {
