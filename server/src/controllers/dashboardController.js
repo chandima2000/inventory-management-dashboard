@@ -10,8 +10,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getDashboardMetrics = void 0;
-const default_index_1 = require("@prisma/client/scripts/default-index");
-const prisma = new default_index_1.PrismaClient();
+const client_js_1 = require("../generated/prisma/client.js");
+const prisma = new client_js_1.PrismaClient();
 const getDashboardMetrics = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const popularProducts = yield prisma.products.findMany({

@@ -5,6 +5,8 @@ import cors from 'cors';
 import helmet from 'helmet'; // security-related HTTP headers
 import morgan from "morgan"; // Logs HTTP requests (for development/debugging)
 
+// Import Custom Routes
+import dashboardRoutes from './routes/dashboardRoutes';
 
 // Middleware Configurations
 dotenv.config();
@@ -23,6 +25,8 @@ app.get("/hello", (req, res) => {
     res.send("Hello World");
 });
 
+
+app.use("/dashboard", dashboardRoutes );
 
 
 // Server Setup
