@@ -1,7 +1,7 @@
 import React from 'react'
 import { useGetDashboardMetricsQuery } from "@/redux/state/api";
 import { ShoppingBag } from 'lucide-react';
-import Rating from '../(components)/Rating/page';
+import Rating from '../../(components)/Rating/page';
 
 
 
