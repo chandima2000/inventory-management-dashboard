@@ -57,18 +57,37 @@ export interface User {
 }
 
 export const api = createApi({
-        reducerPath: "api",
-        baseQuery: fetchBaseQuery({baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL}),
-        tagTypes: ["DashboardMetrics"],
-        endpoints: (build) => ({
-            getDashboardMetrics: build.query<DashboardMetrics, void>({
-        query: () => "/dashboard",
-        providesTags: ["DashboardMetrics"],
+  reducerPath: "api",
+  baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL }),
+  tagTypes: ["DashboardMetrics", "Products"],
+  endpoints: (build) => ({
+    // Get Metrics
+    getDashboardMetrics: build.query<DashboardMetrics, void>({
+      query: () => "/dashboard",
+      providesTags: ["DashboardMetrics"],
+    }),
+
+    // Get Products
+    getProducts: build.query<Product[], string | void>({
+      query: (search) => ({
+        url: "/product",
+        params: search ? { search } : {},
+      }),
+      providesTags: ["Products"],
+    }),
+
+    // Create Product
+    createProduct: build.mutation<Product, NewProduct>({
+      query: (newProduct) => ({
+        url: "/products",
+        method: "POST",
+        body: newProduct,
+      }),
+      invalidatesTags: ["Products"],
     }),
   }),
 });
 
-
 // These are working as hooks
 // Export hooks for usage in functional components
-export const { useGetDashboardMetricsQuery, } = api;
+export const { useGetDashboardMetricsQuery, useGetProductsQuery, useCreateProductMutation } = api;
