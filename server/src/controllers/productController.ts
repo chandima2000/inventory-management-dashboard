@@ -3,6 +3,8 @@ import { PrismaClient } from "../generated/prisma/client.js"
 
 const prisma = new PrismaClient();
 
+
+// getProducts function
 export const getProducts = async (req: Request, res: Response) : Promise<void> => {
     try {
         
@@ -21,4 +23,24 @@ export const getProducts = async (req: Request, res: Response) : Promise<void> =
         res.status(500).json({ message: "Error retrieving products" });
 
     }
+}
+
+
+// createProduct function
+export const createProducts = async (req:  Request, res: Response) : Promise<void> => {
+    try {
+    const { productId, name, price, rating, stockQuantity } = req.body;
+    const product = await prisma.products.create({
+      data: {
+        productId,
+        name,
+        price,
+        rating,
+        stockQuantity,
+      },
+    });
+    res.status(201).json(product);
+  } catch (error) {
+    res.status(500).json({ message: "Error creating product" });
+  }
 }
