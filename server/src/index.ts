@@ -7,6 +7,7 @@ import morgan from "morgan"; // Logs HTTP requests (for development/debugging)
 
 // Import Custom Routes
 import dashboardRoutes from './routes/dashboardRoutes';
+import productRoutes from "./routes/productRoutes";
 
 // Middleware Configurations
 dotenv.config();
@@ -25,8 +26,9 @@ app.get("/hello", (req, res) => {
     res.send("Hello World");
 });
 
-
 app.use("/dashboard", dashboardRoutes );
+
+app.use("/product", productRoutes);
 
 
 // Server Setup
