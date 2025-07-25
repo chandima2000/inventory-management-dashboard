@@ -14,7 +14,7 @@ const client_js_1 = require("../generated/prisma/client.js");
 const prisma = new client_js_1.PrismaClient();
 const getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const users = prisma.users.findMany();
+        const users = yield prisma.users.findMany();
         res.json(users);
     }
     catch (error) {

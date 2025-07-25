@@ -59,7 +59,7 @@ export interface User {
 export const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL }),
-  tagTypes: ["DashboardMetrics", "Products"],
+  tagTypes: ["DashboardMetrics", "Products", "Users"],
   endpoints: (build) => ({
     // Get Metrics
     getDashboardMetrics: build.query<DashboardMetrics, void>({
@@ -85,9 +85,15 @@ export const api = createApi({
       }),
       invalidatesTags: ["Products"],
     }),
+
+    // Get Users
+     getUsers: build.query<User[], void>({
+      query: () => "/users",
+      providesTags: ["Users"],
+    }),
   }),
 });
 
 // These are working as hooks
 // Export hooks for usage in functional components
-export const { useGetDashboardMetricsQuery, useGetProductsQuery, useCreateProductMutation } = api;
+export const { useGetDashboardMetricsQuery, useGetProductsQuery, useCreateProductMutation, useGetUsersQuery } = api;
