@@ -9,6 +9,7 @@ import morgan from "morgan"; // Logs HTTP requests (for development/debugging)
 import dashboardRoutes from './routes/dashboardRoutes';
 import productRoutes from "./routes/productRoutes";
 import userRoutes from "./routes/userRoutes";
+import expenseRoutes from "./routes/expenseRoutes";
 
 // Middleware Configurations
 dotenv.config();
@@ -32,6 +33,8 @@ app.use("/dashboard", dashboardRoutes );
 app.use("/product", productRoutes);
 
 app.use("/users",userRoutes);
+
+app.use("/expenses", expenseRoutes);
 
 // Server Setup
 const port = process.env.PORT || 3001;
