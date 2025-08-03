@@ -11,7 +11,6 @@ A full-stack, Dockerized Inventory Management Dashboard application built with:
 
 ## 🚀 Features
 
-- Authentication & Authorization
 - Inventory CRUD with advanced filtering
 - Sales, Purchases, and Expenses tracking
 - Interactive Dashboard (charts, tables)
@@ -74,5 +73,3 @@ npm run dev
 - Database: PostgreSQL
 
 - DevOps: Docker, GitHub Actions, AWS
-
-- Auth: JWT
